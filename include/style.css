@@ -1,6 +1,5 @@
 /* ==========================================================================
-   MathPrÃ©pa - Style Moderne & ÃpurÃ© pour MathÃ©matiques Sup et SpÃ©
-   Compatible avec toute l'arborescence et la structure des cours
+   MathPrépa - Style Moderne & Épuré pour Mathématiques Sup et Spé
    ========================================================================== */
 
 :root {
@@ -8,7 +7,8 @@
   --primary-light: #3b82f6;
   --primary-dark: #1e3a8a;
   --primary-bg: #eff6ff;
-  --accent: #0284c7;
+  --accent-green: #059669;
+  --accent-green-hover: #047857;
   --text-main: #0f172a;
   --text-muted: #475569;
   --bg-page: #f8fafc;
@@ -52,7 +52,7 @@ a {
   color: var(--primary);
   text-decoration: none;
   font-weight: 500;
-  transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+  transition: all 0.15s ease;
 }
 
 a:hover {
@@ -60,10 +60,12 @@ a:hover {
   text-decoration: underline;
 }
 
-/* Conteneur Principal */
+/* ==========================================================================
+   Conteneur Principal
+   ========================================================================== */
 #global {
   width: 94%;
-  max-width: 1100px;
+  max-width: 1120px;
   margin: 28px auto 60px;
   background-color: var(--bg-card);
   padding: 32px 36px;
@@ -76,7 +78,9 @@ a:hover {
   align-items: flex-start;
 }
 
-/* En-tÃªte MathPrÃ©pa */
+/* ==========================================================================
+   En-tête & Barre de navigation supérieure
+   ========================================================================== */
 #titre {
   width: 100%;
   text-align: center;
@@ -90,7 +94,6 @@ a:hover {
   font-weight: 800;
   letter-spacing: -0.025em;
   margin-bottom: 4px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 #titre h1 a.brand-link {
@@ -108,35 +111,46 @@ a:hover {
   margin-bottom: 12px;
 }
 
-#titre .top-nav, #titre div {
-  font-size: 0.95rem;
-  color: #94a3b8;
+#titre .top-nav {
+  font-size: 0.92rem;
+  color: #cbd5e1;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
   margin-top: 10px;
 }
 
-#titre div a, #titre .top-nav a {
-  padding: 5px 12px;
+#titre .top-nav a {
+  padding: 6px 14px;
   border-radius: var(--radius-sm);
   color: var(--text-muted);
   font-weight: 600;
   text-decoration: none;
+  transition: all 0.2s ease;
 }
 
-#titre div a:hover, #titre .top-nav a:hover {
+#titre .top-nav a:hover {
   background-color: var(--primary-bg);
   color: var(--primary);
   text-decoration: none;
 }
 
-/* Menu LatÃ©ral */
+/* État Actif dans le menu supérieur (Bleu) */
+#titre .top-nav a.nav-active {
+  background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%) !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3) !important;
+}
+
+/* ==========================================================================
+   Menu Latéral (Sidebar)
+   ========================================================================== */
 #menudoc {
   position: static;
-  width: 200px;
+  width: 210px;
   flex-shrink: 0;
   padding-right: 18px;
   border-right: 1px solid var(--border-subtle);
@@ -146,29 +160,46 @@ a:hover {
 #menudoc a {
   display: flex;
   align-items: center;
-  padding: 8px 12px;
-  margin-bottom: 4px;
+  padding: 9px 14px;
+  margin-bottom: 5px;
   width: 100%;
   box-sizing: border-box;
   border-radius: var(--radius-sm);
   color: var(--text-muted);
-  font-size: 0.92rem;
+  font-size: 0.93rem;
   font-weight: 600;
   text-decoration: none;
   transition: all 0.15s ease;
+  border-left: 3px solid transparent;
 }
 
 #menudoc a:hover {
   background-color: var(--primary-bg);
   color: var(--primary);
-  transform: translateX(3px);
+  border-left-color: var(--primary-light);
+  transform: translateX(2px);
+  text-decoration: none;
+}
+
+/* État Actif dans le menu latéral (Surbrillance Bleue marquée) */
+#menudoc a.menu-active {
+  background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%) !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  border-left: 4px solid #172554 !important;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.28) !important;
+  transform: translateX(4px);
+}
+
+#menudoc a.menu-active:hover {
+  color: #ffffff !important;
   text-decoration: none;
 }
 
 /* Zone Recherche */
 #rechercher {
   margin-top: 20px;
-  padding-top: 14px;
+  padding-top: 16px;
   border-top: 1px solid var(--border-subtle);
   width: 100%;
 }
@@ -191,17 +222,19 @@ a:hover {
   box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
 }
 
-/* Contenu Central */
+/* ==========================================================================
+   Contenu Central
+   ========================================================================== */
 #content {
   flex: 1;
   min-width: 0;
-  padding-left: 32px;
+  padding-left: 36px;
   margin: 0;
   width: auto;
 }
 
 #content h1 {
-  font-size: 1.4rem;
+  font-size: 1.45rem;
   font-weight: 700;
   color: var(--primary-dark);
   margin-top: 28px;
@@ -216,10 +249,10 @@ a:hover {
 }
 
 #content h2 {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: 600;
   color: var(--text-main);
-  margin: 14px 0 8px;
+  margin: 16px 0 8px;
 }
 
 #content p {
@@ -228,10 +261,10 @@ a:hover {
   line-height: 1.65;
 }
 
-/* Boutons de sÃ©lection des chapitres */
-#content > p a {
+/* Boutons de sélection des chapitres */
+#content > p a, .chapter-btn {
   display: inline-block;
-  padding: 5px 12px;
+  padding: 6px 13px;
   margin: 3px 4px 3px 0;
   background-color: #f1f5f9;
   border: 1px solid var(--border-subtle);
@@ -239,26 +272,35 @@ a:hover {
   color: var(--primary);
   font-size: 0.88rem;
   font-weight: 500;
-  text-decoration: none;
+  text-decoration: none !important;
   transition: all 0.15s ease;
+  cursor: pointer;
 }
 
-#content > p a:hover {
-  background-color: var(--primary);
-  color: #ffffff !important;
-  border-color: var(--primary);
-  text-decoration: none;
+#content > p a:hover, .chapter-btn:hover {
+  background-color: #e2e8f0;
+  color: var(--primary-dark);
+  text-decoration: none !important;
   transform: translateY(-1px);
-  box-shadow: var(--shadow-sm);
 }
 
-/* BoÃ®te DÃ©tail du Document */
+/* État Actif pour le chapitre sélectionné (Bleu) */
+#content > p a.chapter-active, .chapter-btn.chapter-active {
+  background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%) !important;
+  color: #ffffff !important;
+  border-color: #1e3a8a !important;
+  font-weight: 600 !important;
+  box-shadow: 0 3px 10px rgba(37, 99, 235, 0.35) !important;
+  transform: translateY(-1px);
+}
+
+/* Boîte Détail du Document */
 .detail {
   background: linear-gradient(to right, #f8fafc, #f1f5f9);
   border-left: 4px solid var(--primary-light);
   border-radius: var(--radius-md);
-  padding: 16px 20px;
-  margin: 16px 0 24px;
+  padding: 20px 24px;
+  margin: 18px 0 28px;
   box-shadow: var(--shadow-sm);
   width: auto;
   max-width: 100%;
@@ -267,107 +309,81 @@ a:hover {
 .detail p {
   color: var(--text-muted);
   font-style: normal;
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
-.detail a {
-  font-style: normal;
-}
-
-/* Boutons Modernes de Visualisation et TÃ©lÃ©chargement */
-.voir {
+/* ==========================================================================
+   Redesign Moderne des Boutons PDF ("Voir" & "Corrigé")
+   ========================================================================== */
+.btn-pdf-view, .voir {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 9px 18px;
-  background-color: #2563eb;
+  gap: 10px;
+  padding: 11px 24px;
+  background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%);
   color: #ffffff !important;
   font-weight: 600;
-  font-size: 0.88rem;
+  font-size: 0.92rem;
   border-radius: var(--radius-sm);
   text-decoration: none !important;
-  transition: all 0.2s ease;
-  box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 3px 10px rgba(37, 99, 235, 0.25);
   margin-right: 12px;
   margin-top: 8px;
-  height: auto;
+  margin-bottom: 6px;
+  cursor: pointer;
 }
 
-.voir:hover {
-  background-color: #1d4ed8;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
+.btn-pdf-view:hover, .voir:hover {
+  background: linear-gradient(135deg, #1e40af 0%, #1d4ed8 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.35);
 }
 
-.voir::before {
-  content: "ð";
-  font-size: 1rem;
+.btn-pdf-view:active, .voir:active {
+  transform: translateY(0);
 }
 
-.download {
+.btn-pdf-cor {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 9px 18px;
-  background-color: #059669;
+  gap: 10px;
+  padding: 11px 24px;
+  background: linear-gradient(135deg, #059669 0%, #10b981 100%);
   color: #ffffff !important;
   font-weight: 600;
-  font-size: 0.88rem;
+  font-size: 0.92rem;
   border-radius: var(--radius-sm);
   text-decoration: none !important;
-  transition: all 0.2s ease;
-  box-shadow: 0 2px 4px rgba(5, 150, 105, 0.2);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 3px 10px rgba(5, 150, 105, 0.25);
   margin-right: 12px;
   margin-top: 8px;
-  height: auto;
+  margin-bottom: 6px;
+  cursor: pointer;
 }
 
-.download:hover {
-  background-color: #047857;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 10px rgba(5, 150, 105, 0.3);
+.btn-pdf-cor:hover {
+  background: linear-gradient(135deg, #047857 0%, #059669 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(5, 150, 105, 0.35);
 }
 
-.download::before {
-  content: "â¬ïž";
-  font-size: 1rem;
+.btn-pdf-cor:active {
+  transform: translateY(0);
 }
 
-.error {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 0.8rem;
-  color: #64748b !important;
-  text-decoration: none !important;
-  font-weight: 500;
-  margin-top: 10px;
-  padding: 4px 10px;
-  border-radius: var(--radius-sm);
-  background: rgba(100, 116, 139, 0.08);
-}
-
-.error:hover {
-  color: #dc2626 !important;
-  background: rgba(220, 38, 38, 0.08);
-}
-
-.error::before {
-  content: "â ïž";
-  font-size: 0.85rem;
-}
-
-/* ThÃ©orÃšmes */
+/* Théorèmes */
 .theorem a {
   display: block;
   font-size: 1.05rem;
   color: var(--primary-dark);
   font-weight: 600;
-  margin-top: 12px;
+  margin-top: 14px;
 }
 
 .theorem p {
-  padding-left: 20px;
+  padding-left: 18px;
   color: var(--text-muted);
 }
 
@@ -392,8 +408,10 @@ a:hover {
   font-weight: 500;
 }
 
-/* Adaptation Mobile & Tablettes */
-@media (max-width: 820px) {
+/* ==========================================================================
+   Adaptation Mobile & Tablettes
+   ========================================================================== */
+@media (max-width: 840px) {
   #global {
     width: 96%;
     padding: 20px 18px;
@@ -416,11 +434,16 @@ a:hover {
   #menudoc a {
     width: auto;
     display: inline-flex;
-    padding: 6px 12px;
+    padding: 7px 12px;
     background: #f1f5f9;
     border: 1px solid var(--border-subtle);
+    border-left: 1px solid var(--border-subtle);
   }
   
+  #menudoc a.menu-active {
+    transform: none;
+  }
+
   #rechercher {
     width: 100%;
     margin-top: 10px;
